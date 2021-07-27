@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>12-获取屏幕的dpi</title>
+	</head>
+	<body>
+		<h2 class="box">
+			当前屏幕PPI：<span class="result"></span>
+		</h2>
+	</body>
+	<script src="./js/jquery-1.12.4.min.js"></script>
+	<script>
+		// https://www.cnblogs.com/clis/p/12431439.html
+		
+		console.log('window-', window);
+		console.log('window.screen-', window.screen);
+		function js_getDPI() {
+			var arrDPI = new Array;
+			if (window.screen.deviceXDPI) {
+				arrDPI[0] = window.screen.deviceXDPI;
+				arrDPI[1] = window.screen.deviceYDPI;
+			} else {
+				var tmpNode = document.createElement("DIV");
+				tmpNode.style.cssText =
+					"width:1in;height:1in;position:absolute;left:0px;top:0px;z-index:99;visibility:hidden";
+				document.body.appendChild(tmpNode);
+				arrDPI[0] = parseInt(tmpNode.offsetWidth);
+				arrDPI[1] = parseInt(tmpNode.offsetHeight);
+				tmpNode.parentNode.removeChild(tmpNode);
+			}
+			return arrDPI;
+		}
+		window.onload = function() {
+			$(".result").text(js_getDPI());
+		}
+			
+		
+	</script>
+</html>

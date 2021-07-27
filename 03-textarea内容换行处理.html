@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>textarea内容换行处理</title>
+    <style>
+        .edit {
+            display: block;
+            width: 400px;
+            height: 200px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>内容编辑</h2>
+    <div class="box">
+        <textarea class="edit"></textarea>
+    </div>
+    <h2>内容展示</h2>
+    <div class="box view"></div>
+</body>
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script>
+  $(function() {
+    $(".edit").on("input", function() {
+        var str = this.value.replace(/\n/g,"<br>");
+        $(".view").empty().append(str);
+    })
+  })
+</script>
+</html>
