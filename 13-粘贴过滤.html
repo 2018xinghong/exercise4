@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>粘贴过滤</title>
+		<link rel="stylesheet" href="./plugin/layui-v2.6.8/css/layui.css">
+		<style>
+			.paste-box {
+				margin: 60px auto;
+				width: 800px;
+				height: 800px;
+				border: 1px dashed #ddd;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="paste-box" contenteditable="true"></div>
+		<div class="paste-box">
+			<textarea id="demo" style="display: none;"></textarea>
+		</div>
+	</body>
+	<script src="js/jquery-1.12.4.min.js"></script>
+	<script src="./plugin/layui-v2.6.8/layui.js"></script>
+	<script>
+	layui.use('layedit', function(){
+	  var layedit = layui.layedit;
+	  layedit.build('demo', {
+		  height: '800'
+	  }); //建立编辑器
+	});
+	$(function() {
+		// 纯文本粘贴
+		$(window).on("paste", function (event) {
+			console.log('paste');
+			textPaste(event)
+		});
+
+		function textPaste(event) {
+			event.preventDefault();
+			var text;
+			var clp = (event.originalEvent || event).clipboardData;
+			// 兼容针对于opera ie等浏览器
+			if (clp === undefined || clp === null) {
+				text = window.clipboardData.getData("text") || "";
+				if (text !== "") {
+					if (window.getSelection) {
+					// 针对于ie11 10 9 safari
+						var newNode = document.createElement("span");
+						newNode.innerHTML = text; 
+						window.getSelection().getRangeAt(0).insertNode(newNode);
+					} else {
+					// 兼容ie10 9 8 7 6 5
+						document.selection.createRange().pasteHTML(text);
+					}
+				}
+			} else {
+			// 兼容chorme或hotfire
+				text = clp.getData('text/plain') || "";
+				if (text !== "") {
+					document.execCommand('insertText', false, text);
+				}
+			}
+		}
+	})
+	</script>
+</html>

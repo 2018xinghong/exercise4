@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>09-分页打印</title>
+		<link rel="stylesheet" href="./plugin/layui-v2.6.8/css/layui.css">
+		<link rel="stylesheet" href="./css/resume.css">
+	</head>
+	<body class="bg">
+		<header id="header">
+			<div class="header-level2">
+				<div class="layui-container clearfix">
+					<div class="nav-left fl"><span class="logo-name layui-inline" href="javascritp:;"><img
+								class="logo-pic" src="./img/logo.png" alt=""><span class="sys-name">云人才平台</span></span>
+						<ul class="layui-nav layui-inline" lay-filter="">
+							<li class="layui-nav-item"><a href="./index.html" data-text="首页">首页</a></li>
+							<li class="layui-nav-item"><a href="javascript:;" data-text="职位管理">职位管理<span
+										class="layui-nav-more"></span></a>
+								<dl class="layui-nav-child layui-anim layui-anim-upbit">
+									<dd><a href="./postEditor.html" data-text="发布职位">发布职位</a></dd>
+									<dd><a href="./postList.html" data-text="职位管理">职位管理</a></dd>
+								</dl>
+							</li>
+							<li class="layui-nav-item"><a href="javascript:;" data-text="简历管理">简历管理<span
+										class="layui-nav-more"></span></a>
+								<dl class="layui-nav-child layui-anim layui-anim-upbit">
+									<dd><a href="./resumeList.html" data-text="全部投递简历">全部投递简历</a></dd>
+									<dd><a href="./interviewNotice.html" data-text="面试通知">面试通知</a></dd>
+									<dd><a href="./resumeFavorites.html" data-text="简历收藏夹">简历收藏夹</a></dd>
+									<dd><a href="./postBrowseHistory.html" data-text="浏览记录">浏览记录</a></dd>
+								</dl>
+							</li>
+							<li class="layui-nav-item"><a href="./resumeSearch.html" data-text="简历搜索">简历搜索</a></li><span
+								class="layui-nav-bar" style="left: 186px; top: 55px; width: 0px; opacity: 0;"></span>
+						</ul>
+					</div>
+					<div class="nav-right fr">
+						<ul class="layui-nav" lay-filter="">
+							<li class="layui-nav-item user-mini"><a href="javascript:;"><img src="./img/index-11.png"
+										class="layui-nav-img"><span>用户名</span><span class="layui-nav-more"></span></a>
+								<dl class="layui-nav-child layui-anim layui-anim-upbit">
+									<dd><a href="./company.html">公司主页</a></dd>
+									<dd><a class="btn-logout" href="./login.html">退出</a></dd>
+								</dl>
+							</li><span class="layui-nav-bar"
+								style="left: 0px; top: 55px; width: 0px; opacity: 0;"></span>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</header>
+		<div class="main-content resume-detail">
+			<div class="layui-container">
+				<div class="layui-row">
+					<div class="layui-col-xs9 layui-col-sm9 layui-col-md9 layui-col-lg9">
+						<!-- 简历详情 -->
+						<div class="resume-content resume-print">
+							<!-- 个人信息 -->
+							<div class="resume-user print-unit">
+								<div class="bg-pic">
+									<img src="./img/resume-02.png" alt="">
+								</div>
+								<div class="ruser-content flex">
+									<div class="user-detail flex-1">
+										<div class="detail-pic">
+											<img src="./img/resume-01.png" alt="">
+										</div>
+										<div class="detail-content">
+											<!-- div.detail-name默认为男， .female-女 -->
+											<div class="detail-name female">
+												<span class="name-text">曹薇</span>
+												<span class="sex-icon">
+													<i class="iconfont icon-nan"></i>
+													<i class="iconfont icon-ziyuan2"></i>
+												</span>
+											</div>
+											<div class="breadcrumb-self detail-text">
+												<span class="crumb-text">工作2年 </span>
+												<span class="crumb-separator">|</span>
+												<span class="crumb-text">24</span>
+												<span class="crumb-separator">|</span>
+												<span class="crumb-text">本科</span>
+												<span class="crumb-separator">|</span>
+												<span class="crumb-text">正在找工作</span>
+											</div>
+											<div class="detail-contact">
+												<div class="layui-inline contact-item">
+													<i class="iconfont icon-dianhua"></i>
+													<span>13535214589</span>
+												</div>
+												<div class="layui-inline contact-item">
+													<i class="iconfont icon-youxiang"></i>
+													<span>21594689@qq.com</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="user-action">
+										<div class="collection-action">
+											<div class="collect-item btn-collect-cancel">
+												<i class="layui-icon layui-icon-star"></i>
+												<i class="layui-icon layui-icon-star-fill"></i>
+												<span>已收藏</span>
+											</div>
+											<!-- <div class="collect-item btn-collect-cancel">
+		                                            已收藏
+		                                        </div> -->
+										</div>
+										<div class="other-action">
+											<div class="btn-box">
+												<button
+													class="layui-btn layui-btn-lg layui-btn-primary btn-white btn-send-interview">发送面试邀请</button>
+											</div>
+											<div class="btn-box">
+												<button
+													class="layui-btn layui-btn-lg layui-btn-primary btn-white-border">不合适</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 求职意向 -->
+							<div class="code-card print-unit job-intention">
+								<div class="card-title"><span class="title-text">求职意向</span></div>
+								<div class="card-content">
+									<div class="intention-list">
+										<div class="intention-item">
+											<div class="item-label">求职状态:</div>
+											<div class="item-text">离职，随时到岗</div>
+										</div>
+										<div class="intention-item">
+											<div class="item-label">期望工作地点:</div>
+											<div class="item-text">北京</div>
+										</div>
+										<div class="intention-item">
+											<div class="item-label">期望从事行业:</div>
+											<div class="item-text">互联网</div>
+										</div>
+										<div class="intention-item">
+											<div class="item-label">期望从事职业:</div>
+											<div class="item-text">广告设计</div>
+										</div>
+										<div class="intention-item">
+											<div class="item-label">税前期望月薪:</div>
+											<div class="item-text">10000-20000/月</div>
+										</div>
+										<div class="intention-item">
+											<div class="item-label">期望工作性质:</div>
+											<div class="item-text">全职</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 教育经历 -->
+							<div class="code-card print-unit educational-experience">
+								<div class="card-title"><span class="title-text">教育经历</span></div>
+								<div class="card-content">
+									<div class="education-pic">
+										<img src="./img/university.png" alt="">
+									</div>
+									<div class="education-detail">
+										<div class="education-name">北京大学</div>
+										<div class="breadcrumb-self education-text">
+											<span class="crumb-text">本科</span>
+											<span class="crumb-separator">|</span>
+											<span class="crumb-text">视觉传达专业</span>
+											<span class="crumb-separator">|</span>
+											<span class="crumb-text">2018-2020</span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 工作／实习经历 -->
+							<div class="code-card work-experience">
+								<div class="card-title"><span class="title-text">工作／实习经历</span></div>
+								<div class="card-content">
+									<div class="work-list">
+										<div class="work-item print-unit">
+											<div class="company-time">
+												<span class="company-text">今日头条</span>
+												<span class="time-text fr">2015-2018</span>
+											</div>
+											<div class="breadcrumb-self post-salary">
+												<span class="crumb-text">新媒体运营</span>
+												<span class="crumb-separator">|</span>
+												<span class="crumb-text">2000/月</span>
+											</div>
+											<div class="item-detail">
+												负责电商数据挖掘系统的设计研发，参与精准营销，用户行为挖掘，商品画像等多个领域的算法研发工作；
+												运用机器学习/人工智能技术提升算法系统的性能和业务指标；
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+												<p>学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。</p>
+												<p>学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。</p>
+												<p>学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。</p>
+												<p>学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。</p>
+											</div>
+										</div>
+										<div class="work-item print-unit">
+											<div class="company-time">
+												<span class="company-text">今日头条</span>
+												<span class="time-text fr">2015-2018</span>
+											</div>
+											<div class="breadcrumb-self post-salary">
+												<span class="crumb-text">新媒体运营</span>
+												<span class="crumb-separator">|</span>
+												<span class="crumb-text">2000/月</span>
+											</div>
+											<div class="item-detail">
+												负责电商数据挖掘系统的设计研发，参与精准营销，用户行为挖掘，商品画像等多个领域的算法研发工作；
+												运用机器学习/人工智能技术提升算法系统的性能和业务指标；
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 项目经验  -->
+							<div class="code-card project-experience">
+								<div class="card-title"><span class="title-text">项目经验 </span></div>
+								<div class="card-content">
+									<div class="work-list">
+										<div class="work-item print-unit">
+											<div class="company-time">
+												<span class="company-text">创未来营销活动策划</span>
+												<span class="time-text fr">2015-2018</span>
+											</div>
+											<div class="item-detail">
+												负责电商数据挖掘系统的设计研发，参与精准营销，用户行为挖掘，商品画像等多个领域的算法研发工作；
+												运用机器学习/人工智能技术提升算法系统的性能和业务指标；
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+											</div>
+										</div>
+										<div class="work-item print-unit">
+											<div class="company-time">
+												<span class="company-text">今日头条</span>
+												<span class="time-text fr">2015-2018</span>
+											</div>
+											<div class="item-detail">
+												负责电商数据挖掘系统的设计研发，参与精准营销，用户行为挖掘，商品画像等多个领域的算法研发工作；
+												运用机器学习/人工智能技术提升算法系统的性能和业务指标；
+												学习并跟进机器学习/人工智能及其他技术在电商领域的创新和进展。
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 在校情况 -->
+							<div class="code-card school-situation">
+								<div class="card-title"><span class="title-text">在校情况</span></div>
+								<div class="card-content">
+									<div class="school-term print-unit">
+										<div class="term-title">校内荣誉</div>
+										<div class="term-content">
+											<div class="honor-list">
+												<div class="honor-item">
+													<div class="item-time">2018.10.20</div>
+													<div class="item-text">一等奖学金</div>
+												</div>
+												<div class="honor-item">
+													<div class="item-time">2018.10.20</div>
+													<div class="item-text">校级奖学金</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="school-term print-unit">
+										<div class="term-title">校内职务</div>
+										<div class="term-content">
+											<div class="duty-list">
+												<div class="duty-item">
+													<div class="duty-title">
+														<span class="duty-time">2015-2018</span>
+														<span class="duty-name">摄影协会会长</span>
+													</div>
+													<div class="duty-content">
+														1. 组织学校的有关文娱活动，排练文艺节目。及时发现、推荐、动员文娱骨干积极参与学校各项文娱活动。
+														2. 定期组织同学开展文娱活动，活跃班级的课外活动。
+														3. 负责举办有特色、有意义的文娱性主题班会（如联欢会、晚会等）。
+														4. 组织全班同学积极参加学校的各类文娱活动。
+													</div>
+												</div>
+												<div class="duty-item">
+													<div class="duty-title">
+														<span class="duty-time">2015-2018</span>
+														<span class="duty-name">摄影协会会长</span>
+													</div>
+													<div class="duty-content">
+														1. 组织学校的有关文娱活动，排练文艺节目。及时发现、推荐、动员文娱骨干积极参与学校各项文娱活动。
+														2. 定期组织同学开展文娱活动，活跃班级的课外活动。
+														3. 负责举办有特色、有意义的文娱性主题班会（如联欢会、晚会等）。
+														4. 组织全班同学积极参加学校的各类文娱活动。
+													</div>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+							<!-- 能力分析 -->
+							<div class="code-card ability-analysis">
+								<div class="card-title"><span class="title-text">能力分析</span></div>
+								<div class="card-content">
+									<div class="ability-list">
+										<div class="ability-item print-unit">
+											<div class="ability-title">
+												<span class="title-text">（96分）</span>
+												<span class="title-score">1+X网店运营推广证书</span>
+											</div>
+											<div class="ability-content">
+												<div class="echarts-box" _echarts_instance_="ec_1626343648396"
+													style="-webkit-tap-highlight-color: transparent; user-select: none; position: relative;">
+													<div
+														style="position: relative; width: 818px; height: 314px; padding: 0px; margin: 0px; border-width: 0px;">
+														<canvas data-zr-dom-id="zr_0" width="818" height="314"
+															style="position: absolute; left: 0px; top: 0px; width: 818px; height: 314px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+													</div>
+													<div class=""></div>
+												</div>
+											</div>
+										</div>
+										<div class="ability-item">
+											<div class="ability-title">
+												<span class="title-text">（96分）</span>
+												<span class="title-score">1+X网店运营推广证书</span>
+											</div>
+											<div class="ability-content">
+												<div class="echarts-box">
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 技能证书 -->
+							<div class="code-card print-unit skill-certificate">
+								<div class="card-title"><span class="title-text">技能证书</span></div>
+								<div class="card-content">
+									<div class="certificate-list">
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-06.png" alt="">
+											</div>
+										</div>
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-05.png" alt="">
+											</div>
+										</div>
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-06.png" alt="">
+											</div>
+										</div>
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-05.png" alt="">
+											</div>
+										</div>
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-06.png" alt="">
+											</div>
+										</div>
+										<div class="certificate-item">
+											<div class="item-name">1+X网店运营推广证书</div>
+											<div class="item-pic flex align-items-center justify-content-center">
+												<img src="./img/resume-05.png" alt="">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- 其他信息 -->
+							<div class="code-card print-unit other-info">
+								<div class="card-title"><span class="title-text">其他信息</span></div>
+								<div class="card-content">
+									<div class="other-block">
+										<div class="block-title">语言能力</div>
+										<div class="block-content">
+											<div class="block-item">英语一般</div>
+										</div>
+									</div>
+									<div class="other-block">
+										<div class="block-title">证书</div>
+										<div class="block-content">
+											<div class="block-item">
+												<div class="item-time">2018.10.20</div>
+												<div class="breadcrumb-self item-text">
+													<span class="crumb-text">网店推广运营</span>
+													<span class="">|</span>
+													<span class="crumb-text">中级</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="other-block">
+										<div class="block-title">培训经历</div>
+										<div class="block-content">
+											<div class="block-item">
+												<div class="item-time">2018.10.20</div>
+												<div class="item-text">
+													达内培训机构
+												</div>
+											</div>
+											<div class="block-item">
+												<div class="item-time">2018.10.20</div>
+												<div class="item-text">
+													达内培训机构
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+					</div>
+					<div class="layui-col-xs3 layui-col-sm3 layui-col-md3 layui-col-lg3">
+						<div class="resume-outer">
+							<div class="outer-info post-info">
+								<div class="info-row">
+									<span class="info-left">职位名称：</span>
+									<div class="info-content">大客户销售</div>
+								</div>
+								<div class="info-row">
+									<span class="info-left">更新时间：</span>
+									<div class="info-content">2021-04-26 13:02:04</div>
+								</div>
+							</div>
+							<div class="outer-info match-analysis">
+								<div class="info-row">
+									<span class="info-left">岗位匹配度分析：</span>
+								</div>
+								<div class="info-row">
+									<div class="info-content">
+										该应聘者与该岗位的匹配度为
+										<span class="matching-degree">86%</span>
+									</div>
+								</div>
+								<div class="info-row action-row">
+									<div class="info-content align-center">
+										<button
+											class="layui-btn layui-btn-primary layui-btn-sm btn-main btn-report">匹配分析报告</button>
+									</div>
+								</div>
+							</div>
+							<div class="outer-info print-download">
+								<div class="info-row">
+									<div class="btn-row btn-print">
+										<i class="iconfont icon-dayin"></i>打印简历
+									</div>
+								</div>
+								<div class="info-row">
+									<div class="btn-row btn-download-file">
+										<i class="iconfont icon-xiazai"></i>下载简历/作品集附件
+									</div>
+								</div>
+								<div class="info-row">
+									<div class="btn-row btn-download-online">
+										<i class="iconfont icon-xiazai"></i>下载在线简历
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer id="mulFooter">
+			<div class="layui-container">
+				<div div="" class="tel-phone"><img src="./img/botpeo.png" alt="">
+					<p>技术支持电话</p>
+					<h3>400-081-0003</h3>
+				</div>
+				<div class="bot-line"><img src="./img/bot-line.png" alt=""></div>
+				<div class="company"><img src="./img/botlogo.png" alt="">
+					<div>网址：<a href="http://www.itmc.cn/">http://www.itmc.cn/</a></div>
+					<div>邮箱：itmc@itmc.cn</div>
+					<div>地址：北京市石景山区玉泉路63号远洋时代广场3层</div>
+				</div>
+				<div class="bot-line"><img src="./img/bot-line.png" alt=""></div>
+				<div class="QRcode">
+					<div class="QRcode-main"><img src="./img/erm.png" alt=""></div>
+					<p>ITMC微信服务号</p>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="layui-container">
+					<p class="col-xs-8 col-sm-8 col-md-8">Copyright © 2019 ITMC. All Rights Reserved 京公海网安备110108001153号
+						京ICP备05038702号</p>
+					<p class="col-xs-4 col-sm-4 col-md-4"> 有害短信息举报 / 网络法制和道德教育基地 / 网站统计</p>
+				</div>
+			</div>
+		</footer>
+		<div id="analysisReport" class="analysis-report" style="display:none;">
+			<div class="report-title">
+				<div class="title-text1">匹配分析报告</div>
+				<div class="title-text2">MATCHING ANALYSIS REPORT</div>
+			</div>
+			<div class="report-content">
+				<div class="report-card matching-degree flex">
+					<div class="flex-1">
+						<div class="card-title">
+							匹配度分析：
+						</div>
+						<div class="card-content gray">
+							根据数据分析，应聘者与该岗位的匹配度为86%
+						</div>
+					</div>
+					<div class="percent-dashboard">
+						仪表盘
+					</div>
+				</div>
+				<div class="report-card post-skill">
+					<div class="card-title">
+						岗位所需能力：
+					</div>
+					<div class="card-content">
+						<div class="progress-item">
+							<div class="item-text">
+								<div class="percent-num">100%</div>
+								<div class="skill-name">
+									<span class="name-text">网店推广能力</span>
+									<span class="skill-status ">（符合）</span>
+								</div>
+							</div>
+							<div class="item-progress">
+								<div class="layui-progress layui-progress-big">
+									<div class="layui-progress-bar" lay-percent="100%" style="width: 100%;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="progress-item">
+							<div class="item-text">
+								<div class="percent-num">70%</div>
+								<div class="skill-name">
+									<span class="name-text">网店推广能力</span>
+									<span class="skill-status isLack">（欠缺）</span>
+								</div>
+							</div>
+							<div class="item-progress">
+								<div class="layui-progress layui-progress-big">
+									<div class="layui-progress-bar" lay-percent="70%" style="width: 70%;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="report-card post-certificate">
+					<div class="card-title">
+						岗位所需证书：
+					</div>
+					<div class="card-content">
+						<div class="certificate-item flex align-items-center">
+							<div class="item-pic">
+								<img src="./img/resume-08.png" alt="">
+							</div>
+							<div class="item-name flex-1">1+X网店运营推广证书</div>
+							<div class="item-status">
+								<p>
+									<img src="./img/resume-10.png" alt="">
+								</p>
+								<p>已获得</p>
+							</div>
+						</div>
+						<div class="certificate-item flex align-items-center">
+							<div class="item-pic">
+								<img src="./img/resume-08.png" alt="">
+							</div>
+							<div class="item-name flex-1">1+X网店运营推广证书</div>
+							<div class="item-status">
+								<p>
+									<img src="./img/resume-09.png" alt="">
+								</p>
+								<p>未获得</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="interviewInvitationModal" class="interviewInvitationModal" style="display:none;">
+			<form class="layui-form" lay-filter="interviewInvitationForm">
+				<div class="layui-form-item ">
+					<label class="layui-form-label">候选人</label>
+					<div class="layui-input-block">
+						<div class="layui-form-mid layui-word-aux candidate-text"></div>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label">面试职位</label>
+					<div class="layui-input-block">
+						<div class="layui-form-mid layui-word-aux post-text"></div>
+					</div>
+				</div>
+				<div class="layui-form-item interview-time">
+					<label class="layui-form-label"><em class="star-icon">*</em>面试时间</label>
+					<div class="layui-input-block">
+						<input type="text" name="interviewTime" placeholder="请选择面试时间" autocomplete="off"
+							class="layui-input" readonly="">
+						<i class="iconfont icon-riqi"></i>
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label"><em class="star-icon">*</em>面试地点</label>
+					<div class="layui-input-block">
+						<input type="text" name="interviewLocation" placeholder="请输入面试地点" autocomplete="off"
+							class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label"><em class="star-icon">*</em>联系人</label>
+					<div class="layui-input-block">
+						<input type="text" name="contacts" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item">
+					<label class="layui-form-label"><em class="star-icon">*</em>联系人手机</label>
+					<div class="layui-input-block">
+						<input type="text" name="cellPhone" placeholder="请输入联系人手机号" autocomplete="off"
+							class="layui-input">
+					</div>
+				</div>
+				<div class="layui-form-item remarks-msg">
+					<label class="layui-form-label">备注</label>
+					<div class="layui-input-block">
+						<span class="remarks-item">请携带简历</span>
+						<span class="remarks-item">请携带作品</span>
+						<span class="remarks-item">请带纸币</span>
+						<span class="remarks-item">请着正装</span>
+						<span class="remarks-item">其他</span>
+						<input type="text" name="remarksOther" placeholder="请输入内容" autocomplete="off"
+							class="layui-input layui-hide">
+					</div>
+				</div>
+			</form>
+		</div>
+
+
+
+
+	</body>
+	<script src="./js/jquery-1.12.4.min.js"></script>
+	<script src="./plugin/layui-v2.6.8/layui.js"></script>
+	<script src="./js/util.js"></script>
+
+	<script src="./plugin/echarts-5.1.2/echarts.min.js"></script>
+
+	<script src="./plugin/print/canvas2image.js"></script>
+	<script src="./plugin/print/html2canvas.js"></script>
+	<script src="./plugin/print/jspdf.debug.js"></script>
+
+	<script src="./plugin/print/jquery-migrate-1.2.1.min.js"></script>
+	<script src="./plugin/print/jquery.jqprint-0.3.js"></script>
+
+
+	<script>
+		layui.use(['layer', 'element', 'table', 'laypage', 'form', 'laydate'], function() {
+			var element = layui.element,
+				layer = layui.layer,
+				table = layui.table,
+				laypage = layui.laypage,
+				form = layui.form,
+				laydate = layui.laydate;
+
+			var detailID = sessionStorage.getItem('detailID');
+			console.log('detailID', detailID);
+
+
+
+			// 能力分析-echarts
+			var echartsData = {
+				name: '能力分析-echarts',
+				data: [{
+						name: '网店推广',
+						value: 4200
+					},
+					{
+						name: '营销',
+						value: 3000
+					},
+					{
+						name: '店铺装修',
+						value: 20000
+					},
+					{
+						name: '客服',
+						value: 35000
+					},
+					{
+						name: '店铺装修',
+						value: 50000
+					},
+					{
+						name: '营销',
+						value: 18000
+					}
+				]
+			};
+			setEcharts($(".echarts-box")[0], echartsData);
+
+
+			// 收藏
+			$(".resume-content").on('click', '.btn-collect', function() {
+				$(this).removeClass("btn-collect");
+				$(this).addClass("btn-collect-cancel");
+				$(this).find("span").text('已收藏');
+			})
+			// 取消收藏
+			$(".resume-content").on('click', '.btn-collect-cancel', function() {
+				$(this).addClass("btn-collect");
+				$(this).removeClass("btn-collect-cancel");
+				$(this).find("span").text('收藏');
+			})
+
+			// 发送面试邀请
+			$(".btn-send-interview").click(function() {
+				layer.open({
+					type: 1,
+					title: '发送面试邀请',
+					area: ['700px'],
+					content: $(".interviewInvitationModal"),
+					skin: 'interviewInvitationModalSkin',
+					btn: ['发送面试邀请'],
+					btnAlign: 'c',
+					success: function(layero, index) {
+						var $candidate = $(layero).find(".candidate-text");
+						$candidate.text('夏伟');
+						var $post = $(layero).find(".post-text");
+						$post.text('亚马逊运营专员');
+						var $inputs = $(layero).find("input");
+						$inputs.val('');
+
+						// 时间
+						laydate.render({
+							elem: $(layero).find(".interview-time input")[0]
+						});
+						// 备注时间
+						var $remarks = $(layero).find('.remarks-msg');
+						var $remarksItems = $remarks.find('.remarks-item');
+						$remarks.find("input").addClass("layui-hide");
+						$remarksItems.removeClass('active');
+						$remarksItems.click(function() {
+							$(this).toggleClass('active');
+							$(this).siblings().removeClass("active");
+							var text = $(this).text().trim();
+							var $input = $(this).siblings('input');
+							if (text == '其他') {
+								$input.removeClass("layui-hide");
+							} else {
+								$input.addClass("layui-hide");
+							}
+						})
+
+					},
+					yes: function(index, layero) {
+						var formData = form.val('interviewInvitationForm');
+						console.log(formData);
+						if (formData.interviewTime == '') {
+							layer.msg('请选择面试时间');
+							return;
+						}
+						if (formData.interviewLocation == '') {
+							layer.msg('请输入面试地点');
+							return;
+						}
+						if (formData.contacts == '') {
+							layer.msg('请输入联系人');
+							return;
+						}
+						if (formData.cellPhone == '' && formData.cellPhone.length != 11) {
+							layer.msg('请输入正确格式的联系人手机号');
+							return;
+						}
+						var remarks = $(layero).find(".remarks-item.active").text().trim();
+						formData.remarks = remarks;
+						layer.close(index);
+
+					}
+				})
+			})
+
+
+			// 匹配分析报告
+			$(".btn-report").click(function() {
+				var h = $(window).height() * 0.8;
+				h = h > 705 ? 705 : h;
+				layer.open({
+					type: 1,
+					title: false,
+					area: ['600px', h + 'px'],
+					content: $("#analysisReport"),
+					btn: false
+				})
+			})
+
+
+			// 简历id
+			// var resumeID = sessionStorage.getItem('resumeDetailID');
+			var resumeID = getURLParam('resumeDetailID');
+			console.log('简历id', resumeID);
+			// getData(dom, id)
+
+
+			// 获取数据
+			function getData(dom, id) {
+				var params = {
+					resumeId: id
+				}
+				getResumeDetail(params, function(res) {
+					if (res.succ) {
+
+					} else {
+
+					}
+
+				}, function(err) {
+
+				})
+			}
+
+			// 渲染简历
+			function renderSume(dom, data) {
+
+			}
+
+
+
+
+
+
+
+			const A4_WIDTH = 595.28
+			const A4_HEIGHT = 841.89
+
+
+			// 打印
+			$(".btn-print").click(function() {
+				layer.msg('打印');
+
+				// var $pageUinits = $(".print-unit");
+				// $pageUinits.each(function(index, item) {
+				// 	// console.log(item.offsetTop, item.offsetHeight);
+				// 	var p1 = Math.floor(item.offsetTop / A4_HEIGHT);
+				// 	var y1 = item.offsetTop % A4_HEIGHT;
+				// 	var p2 = Math.floor((item.offsetTop + $(item).outerHeight(true)) / A4_HEIGHT);
+
+				// 	console.log(p1, p2, p1 < p2);
+				// 	if (p1 < p2) {
+				// 		$(item).css('margin-top', (A4_HEIGHT - y1) + 'px');
+				// 		$(item).css('border-top', '1px solid red');
+				// 		console.log(item);
+				// 	}
+				// })
+
+				$(".resume-content").jqprint({
+					debug: false,
+					importCSS: true, //将此属性改为 false；直接在style中写入样式即可
+					printContainer: true,
+					operaSupport: false
+				});
+			})
+
+
+
+			// 保存到电脑
+			$(".btn-download-online").click(function() {
+				layer.msg('保存到电脑');
+				var pdf = new jsPDF('p', 'pt', 'a4');
+				pdf.internal.scaleFactor = 1;
+				var options = {
+					pagesplit: true
+				};
+
+				var $dom = $(".resume-content");
+				var filename = '个人简历.pdf';
+				// pdf.addHTML($dom[0],options,function() {
+				//     pdf.save(filename);
+				// });
+
+
+				// var $pageUinits = $(".print-unit");
+				// $pageUinits.each(function(index, item) {
+				//     console.log(item.offsetTop, item.offsetHeight);
+				//     var p1 = Math.floor(item.offsetTop/ A4_HEIGHT);
+				//     var y1 = item.offsetTop% A4_HEIGHT;
+				//     var p2 = Math.floor((item.offsetTop + item.offsetHeight)/ A4_HEIGHT);
+
+				//     if(p1 < p2) {
+				//         $(item).css('margin-top', (A4_HEIGHT - y1)+'px');
+				//         console.log(item);
+				//     }
+
+				// })
+
+				$("html").animate({
+					scrollTop: 0
+				}, 200);
+				jsPrintPdf($dom, filename, function() {
+
+				});
+
+				// var pages = splitPage($dom[0]);
+				// exportPDF($dom, filename, pages);
+			})
+
+
+
+			//页面转canvas再转PDF
+			function jsPrintPdf($dom, name, callback) {
+				// var filename = '导出的页面名字.pdf';
+				// var element = $("#pdfPrint");    // 这个dom元素是要导出pdf的div容器
+				var filename = name;
+				var element = $dom; // 这个dom元素是要导出pdf的div容器
+				var w = element.width(); // 获得该容器的宽
+				var h = element.height(); // 获得该容器的高
+				var offsetTop = element.offset().top; // 获得该容器到文档顶部的距离
+				var offsetLeft = element.offset().left; // 获得该容器到文档最左的距离
+				var canvas = document.createElement("canvas");
+				var abs = 0;
+				var win_i = $(window).width(); // 获得当前可视窗口的宽度（不包含滚动条）
+				var win_o = window.innerWidth; // 获得当前窗口的宽度（包含滚动条）
+				if (win_o > win_i) {
+					abs = (win_o - win_i) / 2; // 获得滚动条长度的一半
+				}
+				canvas.width = w * 2; // 将画布宽&&高放大两倍
+				canvas.height = h * 2;
+				var context = canvas.getContext("2d");
+				context.scale(2, 2);
+				context.translate(-offsetLeft - abs, -offsetTop);
+				// 这里默认横向没有滚动条的情况，因为offset.left(),有无滚动条的时候存在差值，因此
+				// translate的时候，要把这个差值去掉
+				html2canvas(element, {
+					useCORS: true,
+					dpi: window.devicePixelRatio * 2,
+					scale: 2,
+					width: w,
+					height: h,
+					canvas: canvas,
+					pagesplit: true,
+					background: "#ffffff",
+					onrendered: function(canvas) {
+						var contentWidth = canvas.width;
+						var contentHeight = canvas.height;
+						//一页pdf显示html页面生成的canvas高度;
+						var pageHeight = contentWidth / 592.28 * 841.89;
+						//未生成pdf的html页面高度
+						var leftHeight = contentHeight;
+						//页面偏移
+						var position = 0;
+						//a4纸的尺寸[595.28,841.89]，html页面生成的canvas在pdf中图片的宽高
+						var imgWidth = 595.28;
+						var imgHeight = 592.28 / contentWidth * contentHeight;
+
+						var pageData = canvas.toDataURL('image/jpeg', 1.0);
+
+						var pdf = new jsPDF('', 'pt', 'a4');
+
+						//有两个高度需要区分，一个是html页面的实际高度，和生成pdf的页面高度(841.89)
+						//当内容未超过pdf一页显示的范围，无需分页
+						if (leftHeight < pageHeight) {
+							pdf.addImage(pageData, 'JPEG', 0, 0, imgWidth, imgHeight);
+						} else { // 分页
+							while (leftHeight > 0) {
+								pdf.addImage(pageData, 'JPEG', 0, position, imgWidth, imgHeight)
+								leftHeight -= pageHeight;
+								position -= 841.89;
+								//避免添加空白页
+								if (leftHeight > 0) {
+									pdf.addPage();
+								}
+							}
+						}
+						pdf.save(filename);
+						callback && callback();
+					}
+				})
+			}
+
+
+			function splitPage(dom) {
+
+				const pageOffsetTop = dom.offsetTop
+				const pageOffsetWidth = dom.offsetWidth
+				const pageOffsetHeight = dom.offsetHeight
+				const $unitElements = dom.querySelectorAll('.print-unit')
+
+				const peerPageHeight = pageOffsetWidth / A4_WIDTH * A4_HEIGHT // 获取缩放后的一页页面高度
+				const pages = [
+					[{
+						top: 0, // 起点初始化
+						offsetTop: 0
+					}]
+				]
+
+				// 遍历最小单元格
+				// 获取单元格底部距离顶部的高度 top，以及 offsetTop
+				// 根据 top 值，算出该单元格的页码，放入数组 pages
+				$unitElements.forEach($element => {
+					const offsetTop = $element.offsetTop - pageOffsetTop
+					const top = offsetTop + $element.offsetHeight
+					const pageIndex = parseInt(top / peerPageHeight)
+
+					// 新的一页
+					if (typeof pages[pageIndex] === 'undefined') {
+						pages[pageIndex] = []
+					}
+
+					pages[pageIndex].push({
+						top,
+						offsetTop
+					})
+				})
+
+				console.log(pages)
+
+				return pages
+			}
+
+			function exportPDF($dom, filename, pages) {
+				// 滚动到页面顶部，避免导出不全
+				document.documentElement.scrollTop = 0
+
+				html2canvas($dom, {
+					allowTaint: true,
+					scale: 2
+				}).then((canvas) => {
+					const pdf = new jsPDF('', 'pt', 'a4')
+					const contentWidth = canvas.width
+					const contentHeight = canvas.height
+					const pageData = canvas.toDataURL('image/jpeg', 1.0)
+					const pageHeight = contentWidth / A4_WIDTH * A4_HEIGHT // 内容缩放后的高度
+					// const pages = splitPage()
+
+					pages.forEach((page, index) => {
+						const {
+							offsetTop
+						} = page[0]
+						const {
+							top
+						} = page[page.length - 1]
+
+						if (index > 0) {
+							pdf.addPage()
+						}
+
+						pdf.addImage(pageData, 'JPEG', 0, -1 * offsetTop, A4_WIDTH, top)
+					})
+
+					pdf.save(filename)
+				})
+			}
+
+			// 设置echarts
+			function setEcharts(dom, echartsData) {
+				console.log(echartsData);
+				var data = echartsData.data;
+				var name = echartsData.name;
+				var indicator = [];
+				var valueList = [];
+				data.forEach(function(item, index) {
+					indicator.push({
+						name: item.name,
+						max: 80000
+					});
+					valueList.push(item.value);
+				})
+				var myChart = echarts.init(dom);
+				// 指定图表的配置项和数据
+				var option = {
+					// title: {
+					//     text: '基础雷达图'
+					// },
+					// legend: {
+					//     data: ['预算分配（Allocated Budget）', '实际开销（Actual Spending）']
+					// },
+					tooltip: {
+						trigger: 'axis'
+					},
+					radar: {
+						// shape: 'circle',
+						// indicator: [
+						//     { name: '网店推广', max: 6500},
+						//     { name: '营销', max: 16000},
+						//     { name: '店铺装修', max: 30000},
+						//     { name: '客服', max: 38000},
+						//     { name: '店铺装修', max: 52000},
+						//     { name: '营销', max: 25000}
+						// ],
+						startAngle: 0,
+						indicator: indicator
+					},
+					series: [{
+						name: name,
+						type: 'radar',
+						label: {
+							normal: {
+								color: '#333333'
+							}
+						},
+						tooltip: {
+							trigger: 'item'
+						},
+						lineStyle: {
+							color: 'transparent'
+						},
+						itemStyle: {
+							color: '#1974F6',
+							borderWidth: 0.5,
+							borderColor: '#fff',
+						},
+						areaStyle: {
+							// color: '#4AB6FB',
+							normal: {
+								color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+									offset: 0,
+									color: '#1974F6' // 0% 处的颜色
+								}, {
+									offset: 1,
+									color: '#4AB6FB' // 100% 处的颜色
+								}])
+							}
+						},
+						data: [{
+							value: valueList,
+							name: name
+						}]
+					}]
+				};
+				myChart.setOption(option);
+			}
+
+
+		})
+	</script>
+</html>
